@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<string.h>
+int n,m,c,c2,idx;
+char s[25][25];
+main()
+{
+	scanf("%d%d",&m,&n);
+	for(c=0;c<m;c++)
+	{
+		scanf("%s",s[c]);
+	}
+	for(c=0;c<m;c++)
+	{
+		for(c2=0;c2<n-2;c2++)
+		{
+			if(s[c][c2]=='s'||s[c][c2]=='S')
+			{
+				if(s[c][c2+1]=='k'||s[c][c2+1]=='K')
+				{
+					if(s[c][c2+2]=='s'||s[c][c2+2]=='S')
+					{
+						idx++;
+					}
+				}
+			}
+		}
+	}
+	for(c=0;c<n;c++)
+	{
+		for(c2=0;c2<m-2;c2++)
+		{
+			if(s[c2][c]=='s'||s[c2][c]=='S')
+			{
+				if(s[c2+1][c]=='k'||s[c2+1][c]=='K')
+				{
+					if(s[c2+2][c]=='s'||s[c2+2][c]=='S')
+					{
+						idx++;
+					}
+				}
+			}
+		}
+	}
+	printf("%d",idx);
+}

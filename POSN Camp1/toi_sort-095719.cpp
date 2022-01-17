@@ -1,0 +1,25 @@
+#include<stdio.h>
+int n,s[1005],c,c2,rem,idx;
+main()
+{
+	scanf("%d",&n);
+	for(c=0;c<n;c++)
+	{
+		scanf("%d",&s[c]);	
+	}
+	for(c=0;c<n;c++)
+	{
+		for(c2=0;c2<n-c-1;c2++)
+		{
+			if(s[c2]>s[c2+1])
+			{
+				rem=s[c2+1];
+				s[c2+1]=s[c2];
+				s[c2]=rem;
+				rem=0;
+				idx++;
+			}
+		}
+	}
+	printf("%d",2*idx);
+}

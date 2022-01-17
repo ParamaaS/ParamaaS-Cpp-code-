@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<string.h>
+char n[15],m[300];
+int nu,c,len,c2,idx=1,idx2=1,idx3=1,lenn;
+main()
+{
+	gets(n);
+	lenn=strlen(n);
+	for(c=0;c<lenn;c++)
+	{
+		nu*=10;
+		nu+=n[c]-'0';
+	}
+//	printf("%d",nu);
+	for(c=0;c<nu;c++)
+	{
+		gets(m);
+		len=strlen(m);
+		for(c2=0;c2<len;c2++)
+		{
+			if(m[c2]==20)
+			{
+				continue;
+			}
+			if((m[c2]!='(')&&(m[c2]!=')'))
+			{
+				idx2=0;
+				break;
+			}
+			if(m[c2]=='(')
+			{
+				idx++;
+				continue;
+			}
+			if(m[c2]==')')
+			{
+				idx3++;
+				continue;
+			}	
+		}
+		if(idx2==0)
+		{
+			printf("FAlSE\n");
+			idx=0;
+			idx2=1;
+			idx3=0;
+			continue;
+		}
+		if(idx==idx3==1)
+		{
+			printf("TRUE\n");
+		}
+		else if(idx!=idx3)
+		{
+			printf("FALSE\n");
+		}
+		idx3=0;
+		idx=0;
+		idx2=1;
+	}
+}

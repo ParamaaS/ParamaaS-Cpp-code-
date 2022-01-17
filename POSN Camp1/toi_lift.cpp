@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<string.h>
+int n,m,c,c2,dif[1005],idx,remm,min=1000005;
+int a[1005],ab,ac,cc;
+main()
+{
+	scanf("%d%d",&n,&m);
+	for(c=0;c<n;c++)
+	{
+		scanf("%d",&a[c]);
+	}
+	for(c=0;c<m;c++)
+	{
+		scanf("%d%d",&ab,&ac);
+		for(c2=0;c2<n;c2++)
+		{
+			dif[c2]=a[c2]-ab;
+			if(dif[c2]<0)
+			{
+				dif[c2]=dif[c2]*(-1);
+			}
+			//printf("%d ",dif);			
+			if(min>=dif[c2])
+			{
+				min=dif[c2];
+			}
+		}
+		for(cc=0;cc<n;cc++)
+		{
+			if(min==dif[cc])
+			{
+				remm=cc;
+				break;
+			}
+		}
+		printf("%d\n",remm+1);
+		idx=0;
+		min=1000005;
+		a[remm]=ac;	
+		remm=0;
+		//remm=0;
+	}
+}

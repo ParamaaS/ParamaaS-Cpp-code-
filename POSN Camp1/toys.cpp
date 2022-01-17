@@ -1,0 +1,59 @@
+#include<stdio.h>
+int n,c,c2;
+main()
+{
+	scanf("%d",&n);
+	for(c=1;c<n;c++)
+	{
+		for(c2=0;c2<c;c2++)
+		{
+			printf("*");
+		}
+		for(c2=n-c-1;c2>0;c2--)	
+		{
+			printf("_");
+		}
+		for(c2=n-c+1;c2>0;c2--)	
+		{
+			printf("+");
+		}
+		for(c2=1;c2<c;c2++)
+		{
+			printf("_");
+		}
+		printf("\n");
+	}
+	//******************
+	for(c=1;c<n;c++)
+	{
+	printf("*");
+	}
+	printf("O");
+	for(c=1;c<n;c++)
+	{
+	printf("*");
+	}
+	printf("\n");
+	//*****************
+	for(c=1;c<n;c++)
+	{
+		for(c2=n-c-1;c2>0;c2--)	
+		{
+			printf("_");
+		}
+		for(c2=0;c2<=c;c2++)
+		{
+			printf("+");
+		}
+		for(c2=1;c2<c;c2++)
+		{
+			printf("_");
+		}
+		for(c2=n-c;c2>0;c2--)	
+		{
+			printf("*");
+		}
+		printf("\n");
+	}
+	
+}

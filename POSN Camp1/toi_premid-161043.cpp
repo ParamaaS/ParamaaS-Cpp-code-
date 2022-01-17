@@ -1,0 +1,47 @@
+#include<stdio.h>
+int n,m,sum,rem,c;
+main()
+{
+	scanf("%d",&n);
+	for(c=0;c<n;c++)
+	{
+		scanf("%d",&m);
+		rem+=m;
+		sum=rem%39;
+		if(sum<=6)
+		{
+			printf("Sunday\n");
+			continue;
+		}
+		if(sum>6&&sum<=8)
+		{
+			printf("Monday\n");
+			continue;
+		}
+		if(sum>8&&sum<=14)
+		{
+			printf("Tuesday\n");
+			continue;
+		}
+		if(sum>14&&sum<=20)
+		{
+			printf("Wednesday\n");
+			continue;
+		}
+		if(sum>20&&sum<=24)
+		{
+			printf("Thursday\n");
+			continue;
+		}
+		if(sum>24&&sum<=29)
+		{
+			printf("Friday\n");
+			continue;
+		}
+		if(sum>29&&sum<=39)
+		{
+			printf("Saturday\n");
+			continue;
+		}
+	}
+}

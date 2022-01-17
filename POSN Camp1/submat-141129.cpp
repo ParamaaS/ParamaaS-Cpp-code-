@@ -1,0 +1,38 @@
+#include<stdio.h>
+int n,s[15][15],sum,c,c2,cc,rem=-2000000000,cc2,ca,ca2;
+main()
+{
+	scanf("%d",&n);
+	for(c=1;c<=n;c++)
+	{
+		for(c2=1;c2<=n;c2++)
+		{
+			scanf("%d",&s[c][c2]);
+		}
+	}
+	for(ca=1;ca<=n;ca++)
+	{
+		for(ca2=1;ca2<=n;ca2++)
+		{
+			for(cc2=1;cc2<=n;cc2++)
+			{
+				for(cc=1;cc<=n;cc++)
+				{
+					for(c=ca;c<=cc2;c++)
+					{
+						for(c2=ca2;c2<=cc;c2++)
+						{
+						sum+=s[c][c2];
+						}
+					}
+					if(rem<sum)
+					{
+						rem=sum;
+					}
+					sum=0;
+				}
+			}
+		}
+	}
+	printf("%d",rem);
+}

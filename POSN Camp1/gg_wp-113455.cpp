@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+int n,s,c,c2,idx=1,r2;
+main()
+{
+      scanf("%d",&n);
+      for(c=1;c<=n;c++)
+      {
+        scanf("%d",&s);
+        if(s==1)
+        {
+            printf("GL,HF\n");
+            continue;
+        }
+        if(s==2)
+        {
+            printf("GG,WP\n");
+            continue;
+        }
+        r2=sqrt(s);
+        for(c2=2;c2<=r2;c2++)
+        {
+            if(s%c2==0)
+            {
+                idx=0;
+                printf("GL,HF\n");
+                break;
+            }
+        }
+        if(idx==1)
+        {
+            printf("GG,WP\n");
+        }
+        idx=1;
+      }
+      scanf(" ");
+}

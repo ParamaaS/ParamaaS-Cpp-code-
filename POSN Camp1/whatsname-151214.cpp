@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
+int n,c,len,no,ok,idx,c2,num;
+char s[105];
+main()
+{
+	scanf("%d",&n);
+	scanf("%s",s);
+	len=strlen(s);
+	no=len/n;
+	for(c=0;c<len;c+=no)
+	{
+		num=0;
+ 		for(c2=c;c2<c+no;c2++)
+ 		{
+ 			num*=16;
+ 			if('0'<=s[c2]&&s[c2]<='9')
+ 			{
+ 				num+=s[c2]-'0';
+ 			}
+ 			else
+ 			{
+ 				num+=s[c2]-'A'+10;
+			}
+			num=num%26;
+	 	}
+	 	num=num%26;
+		printf("%c",num+'A');
+	}
+}

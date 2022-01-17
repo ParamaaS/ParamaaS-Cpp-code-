@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include<string.h>
+int n,c,len,c2,idx,idx2;
+char s[35]; 
+main()
+{
+	scanf("%d",&n);
+	for(c=0;c<n;c++)
+	{
+		scanf("%s",s);
+		len=strlen(s);	
+		for(c2=0;c2<=len;c2++)
+		{
+			if(s[c2]=='a')
+			{
+				idx=1;
+				continue;
+			}
+			if(s[c2]=='e')
+			{
+				idx=1;
+				continue;
+			}
+			if(s[c2]=='i')
+			{
+				idx=1;
+				continue;
+			}
+			if(s[c2]=='o')
+			{
+				idx=1;
+				continue;
+			}
+			if(s[c2]=='u')
+			{
+				idx=1;
+				continue;
+			}
+			if(idx==1)
+			{
+				if((s[c2]!='a')&&(s[c2]!='e')&&(s[c2]!='i')&&(s[c2]!='o')&&(s[c2]!='u'))
+				{
+				idx2++;
+				idx=0;
+				}
+			}
+		}
+		printf("%d\n",idx2);
+		idx2=0;
+		idx=0;
+	}
+}
