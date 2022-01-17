@@ -1,0 +1,96 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+stack <char> stk;
+char str[100005];
+string s;
+char ch,rec;
+int len,c,n,c2,idx;
+main()
+{
+	scanf("%d",&n);
+	for(c2=0;c2<n;c2++)
+	{
+		scanf("%s",str);
+		len=strlen(str);
+		s=str;
+		for(c=0;c<len;c++)
+		{
+			idx=0;
+			ch=s[c];
+			if(ch=='{'||ch=='('||ch=='[')
+			{
+				stk.push(ch);
+				continue;
+			}
+			else if(ch=='}'||ch==')'||ch==']')
+			{
+				if(!stk.empty())
+				{
+					rec=stk.top();
+					if(rec=='{'&&ch=='}')
+					{
+						stk.pop();
+						continue;
+					}
+					if(rec=='('&&ch==')')
+					{
+						stk.pop();
+						continue;
+					}
+					if(rec=='['&&ch==']')
+					{
+						stk.pop();
+						continue;
+					}
+					if(rec=='{'&&ch!='}')
+					{
+						printf("no");
+						idx=2;
+						break;
+					}
+					if(rec=='('&&ch!=')')
+					{
+						printf("no");
+						idx=2;
+						break;
+					}
+					if(rec=='['&&ch!=']')
+					{
+						printf("no");
+						idx=2;
+						break;
+					}
+				}
+				else
+				{
+					printf("no");
+					idx=2;
+					break;
+				}
+			}
+			else
+			{
+				printf("no");
+				idx=2;
+				break;
+			}
+		}
+		if(idx!=2)
+		{
+			if(stk.empty())
+			{
+				printf("yes");
+			}
+			else
+			{
+				printf("no");
+			}
+		}
+		printf("\n");
+		while(!stk.empty())
+		{
+			stk.pop();
+		}
+	}
+}
