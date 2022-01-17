@@ -1,0 +1,91 @@
+#include<bits/stdc++.h>
+using namespace std;
+char u[15],s[10005],s2[10005],m[7];
+int n,c2,rem,rem2,len,len2;
+main()
+{
+	gets(u);
+	gets(m);
+	if(strlen(m)==1)
+	{
+		n=m[0]-'0';
+	}
+	if(strlen(m)==2)
+	{
+		n=m[0]-'0';
+		n*=10;
+		n+=m[1]-'0';
+	}
+	gets(s);
+	len2=strlen(s);
+	if(!strcmp("szyfruj",u))
+	{
+		for(c2=0;c2<len2;c2++)
+		{
+			memset(s2,0,sizeof s2);
+			if('A'>s[c2]&&s[c2]<'Z'&&'a'>s[c2]&&s[c2]<'z')
+			{
+				s2[c2]=s[c2];
+				printf("%c",s2[c2]);
+				continue;
+			}
+			rem=s[c2];
+			rem2=rem;
+			rem2+=n;
+			if('a'<=rem&&rem<='z')
+			{
+				rem2-='a';
+				rem2%=26;
+				rem2+='a';
+			}
+			else if('A'<=rem&&rem<='Z')
+			{
+				rem2-='A';
+				rem2%=26;
+				rem2+='A';
+			}
+			printf("%c",rem2);
+		}
+	}	
+	if(!strcmp("odszyfruj",u))
+	{	
+		for(c2=0;c2<len2;c2++)
+		{
+			if('A'>s[c2]&&s[c2]<'Z'&&'a'>s[c2]&&s[c2]<'z')
+			{
+				s2[c2]=s[c2];
+				printf("%c",s2[c2]);
+				continue;
+			}
+			rem=s[c2];
+			rem2=rem;
+			rem2-=n;
+			if('a'<=rem&&rem<='z')
+			{
+				if('a'+n>=rem)
+				{
+					rem2-='a';
+					rem2+='z';
+					rem2++;
+				}
+				rem2-='a';
+				rem2%=26;
+				rem2+='a';
+			}
+			else if('A'<=rem&&rem<='Z')
+			{
+				if('A'+n>=rem)
+				{
+					rem2-='A';
+					rem2+='Z';
+					rem2++;
+				}
+				rem2-='A';
+				rem2%=26;
+				rem2+='A';
+			}
+			s2[c2]=rem2;
+			printf("%c",rem2);
+		}
+	}
+}
